@@ -43,9 +43,9 @@ class Game():
 					if command[0] in ["position", "pos"]:
 						print(sol.pos)
 					if command[0] in ["shoot", "st", "sht"]:
-						dammage = self.player[self.current_soldier].weapon[command[1]].shoot
+						dammage = self.player[self.current_player].weapon[command[1]].shoot()
 						if dammage > -1:
-							self.player[self.current_player].health_point.get_shot(dammage, [command[2],command[3]])
+							self.player[self.current_player].get_shot(dammage, [command[2],command[3]])
 				self.map.print_map(soldiers = self.player[0].soldier + self.player[1].soldier, current_soldier = sol.pos)
 				print(sol.action_point)
 

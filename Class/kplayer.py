@@ -10,7 +10,7 @@ class Player():
 		self._weapon = weapon
 
 	def get_health_point(self):
-		return health_point
+		return self._health_point
 	def set_health_point(self, val):
 		self._health_point = val
 		if self._health_point <= 0:
@@ -30,8 +30,13 @@ class Player():
 		if self._respawn < 0:
 			respawn = property(get_respawn, set_respawn)
 
-	def get_soldier(self):
-		return self._soldier
+	def get_soldier(self, pos = []):
+		if pos == []:
+			return self._soldier
+		for sol in self._soldier:
+			if sol.pos == pos:
+				return sol
+		return None
 	def set_soldier(self, val):
 		self._soldier = val
 	soldier = property(get_soldier, set_soldier)
@@ -41,3 +46,6 @@ class Player():
 	def set_weapon(self, val):
 		self._weapon = val
 	weapon = property(get_weapon, set_weapon)
+
+	def get_shot(self, dammage):
+		self.health_point -= dammage
