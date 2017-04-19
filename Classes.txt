@@ -1,0 +1,28 @@
+Gme
+	player[]
+	board
+
+Player
+	weapon[]
+	HP
+	Lifes
+	soldiers[]
+
+Soldier
+	pos
+	PM
+Weapon
+	ammo
+	range
+	damage
+		damage:chance
+		[1:50, 2:30, 3:15, 4:5]
+	blocked by wall
+	shoot()
+		remove ammo
+		get damage done
+ 
+Board
+	Case[]
+		type
+			
